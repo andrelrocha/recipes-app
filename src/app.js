@@ -1,10 +1,11 @@
-import express from "express";
-import path from 'path';
-import cons from 'consolidate';
-import bodyParser from 'body-parser';
-import * as dust from 'dustjs-helpers';
+const express = require("express");
+const path = require('path');
+const cons = require('consolidate');
+const bodyParser = require('body-parser');
+const dust = require('dustjs-helpers');
 
-import { routes } from "./routes";
+const { routes } = require("./routes.js");
+
 
 const app = express();
 app.use(express.json());
@@ -17,4 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-export { app };
+module.exports = {
+    app: app
+  };
